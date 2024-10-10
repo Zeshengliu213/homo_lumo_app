@@ -1,5 +1,4 @@
 streamlit
-rdkit-pypi
 pandas
 pillow
 scikit-learn
