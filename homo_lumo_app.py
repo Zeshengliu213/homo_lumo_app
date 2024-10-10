@@ -30,7 +30,7 @@ def generate_kp_fingerprints(smiles):
     return list(kp_fp)
 
 # 生成分子图像
-#def generate_molecule_image(smiles):
+def generate_molecule_image(smiles):
     mol = Chem.MolFromSmiles(smiles)
     if mol:
         img = Draw.MolToImage(mol, size=(300, 300))  # 生成分子结构图
@@ -68,10 +68,10 @@ if st.button('Predict'):
                 st.write(f'Predicted LUMO: {lumo:.2f}')
                 
                 # 输出分子结构图像
-                #if molecule_image:
-                    #st.image(molecule_image, caption='Molecular Structure')
-                #else:
-                    #st.write("Invalid SMILES string. Could not generate molecule image.")
+                if molecule_image:
+                    st.image(molecule_image, caption='Molecular Structure')
+                else:
+                    st.write("Invalid SMILES string. Could not generate molecule image.")
             else:
                 st.write(homo)  # 如果 SMILES 无效，显示错误信息
         except Exception as e:
